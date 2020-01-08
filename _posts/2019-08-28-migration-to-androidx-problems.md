@@ -91,15 +91,15 @@ third-party UI components or RxJava chains. And that's OK. But in other cases it
 to wrap third-party components into your custom interfaces, because then you will be able to replace one
 dependency with another without much pain.
 
-There are more benefits in this, and Uncle Bob will explain them better than me. I just wanted to
+There are more benefits in this, and [Uncle Bob will explain them better than me](https://drive.google.com/file/d/0BwhCYaYDn8EgN2M5MTkwM2EtNWFkZC00ZTI3LWFjZTUtNTFhZGZiYmUzODc1/view). I just wanted to
 highlight the most valuable point in terms of replacing broken dependencies with new stuff.
 
 ## Write truly testable code
 
 Testability can mean a lot, but I wanted to pay attention to the one particular aspect here. Tests increase
-maintainability of your code, but they often are written without paying much attention to maintainability.
+maintainability of your main code base, but they often are written in not so maintainable way.
 And from what I've seen, tests were the reason why projects have not been able to migrate to AndroidX.
-Which means that code under tests was not actually testable, so authors used some cruel workarounds.
+Which means that code under tests was not actually testable, so authors used some workarounds.
 
 Signals of such faux testable code can be PowerMock or Robolectric listed in dependencies.
 
@@ -123,4 +123,6 @@ as you think. And this code will turn into nasty legacy code quicker than you ca
 ## Conclusion
 
 Follow SOLID principles from the beginning and your project will survive any Android SDK changes and
-you will save your mental health adapting to any changes in SDK or business needs.
+you will save your mental health adapting to any changes in SDK or business needs. And if there is no
+architecture and tests in your project, prepare yourself for long and painful refactoring and your
+client for spending some time and money on this.
