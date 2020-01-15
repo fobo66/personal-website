@@ -11,7 +11,15 @@ I wanted to share this code in more common way, via plugin, so I decided to crea
 Official docs are not clear enough and spread across different pages, and articles across the internet are often outdated. Getting the knowledge about Gradle helped me
 understand how Android build system works, how can we effectively configure our builds and how to effectively automate some tedious tasks. So, I decided to write this article.
 
-First of all, I'll explain a little bit about what are build systems, with small historical reference to GNU make as an example, then I walk you through the components of Gradle,
-and in the end we will fixate our knowledge on the concrete example of the Android Gradle plugin.
+First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU make as an example, then I walk you through
+the components of Gradle, and in the end we will fixate our knowledge on the concrete example of the Android Gradle plugin.
 
-To read this article, you don't need any specific knowledge, but familiarity with Android development will help, since I will use a lot of terms related to it.
+To read this article, you need to know any programming language, but familiarity with Java and Android development will help, since I will use a lot of terms related to it.
+
+## What is a build system
+
+According to [wiki](https://en.wikipedia.org/wiki/Build_automation), build automation system (or build system, for short) is "is the process of automating the creation of a software
+build and the associated processes including: compiling computer source code into binary code, packaging binary code, and running automated tests". This definition may not tell you
+enough, so let's look into an example.
+
+Imagine your first Hello World application, when you just started to learn your programming language. It probably was deadly simple, written in one file and run from the command line.
