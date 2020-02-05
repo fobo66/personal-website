@@ -1,5 +1,5 @@
 ---
-title: "Problems with migration projects to AndroidX"
+title: "What I've learned after migrating my projects to AndroidX"
 published: false
 ---
 
@@ -13,7 +13,7 @@ the future. Hope that they will be useful for you.
 ## Background
 
 Bookcrossing Mobile app was started as a pet project of mine. Due to limited resources development went slowly and often I didn't wanted
-to bother with some boring to write stuff and used a lot of third-party dependencies. Also, I thought back then that it's completely OK
+to bother with some boring stuff and used a lot of third-party dependencies. Also, I thought back then that it's completely OK
 to mix up Rx and non-Rx ways. _Spoiler: it's absolutely not._
 
 All of a sudden, after a few months of Bookcrossing Mobile being in Beta release, Google introduced replacement of Support libraries with
@@ -24,13 +24,12 @@ used will upgrade to AndroidX. Even Jetifier was unable to help with the mess in
 I was busy with other stuff, so I was unable to invest much resources into refactoring. Only
 after a year and a half I've finally got some time to work on this project again.
 
-(Un)surprisingly, little has changed in terms of AndroidX support. Some libraries
+(Un)surprisingly, little has changed in terms of AndroidX support after a year. Some libraries
 have migrated, but the majority of them stayed on support libraries, because they were no longer
 maintained.
 
 Biting the tongue, I've migrated app to AndroidX and replaced every library that hasn't migrated. It
-took less time that I've expected, mostly because I've got more experience during time of working on
-other stuff.
+took less time that I've expected, mostly because it was easy enough to replace outdated libraries with my own code.
 
 Now when I'm finished with this, it's time to retrospect on what was wrong and how
 you can avoid my mistakes and save a lot of time in the future when you'll
