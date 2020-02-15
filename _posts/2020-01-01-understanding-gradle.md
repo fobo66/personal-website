@@ -23,3 +23,27 @@ build and the associated processes including: compiling computer source code int
 enough, so let's look into an example.
 
 Imagine your first Hello World application, when you just started to learn your programming language. It probably was deadly simple, written in one file and run from the command line.
+
+Something like this:
+
+```java
+package hello;
+
+public class HelloWorld {
+    public static void main(String... args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+
+It can be easily compiled with one command:
+
+```bash
+javac HelloWorld.java
+```
+
+However, when complexity of the problem you solve grows, one file is often not enough. You may end up using multiple files, stored chaotically across the folder with your project.
+And when you need to use some third-party dependencies, command for compiling stuff will grow significantly, allowing pesky mistakes spill into it when someone will try to compile your
+project on different machine.
+
+This was more painful in the end of 1980s, whe C programming language was on the rise.
