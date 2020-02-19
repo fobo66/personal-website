@@ -26,7 +26,7 @@ Imagine your first Hello World application, when you just started to learn your 
 
 Something like this:
 
-```java
+``` java
 package hello;
 
 public class HelloWorld {
@@ -38,7 +38,7 @@ public class HelloWorld {
 
 It can be easily compiled with one command:
 
-```bash
+``` bash
 javac HelloWorld.java
 ```
 
@@ -46,4 +46,13 @@ However, when complexity of the problem you solve grows, one file is often not e
 And when you need to use some third-party dependencies, command for compiling stuff will grow significantly, allowing pesky mistakes spill into it when someone will try to compile your
 project on different machine.
 
-This was more painful in the end of 1980s, whe C programming language was on the rise.
+This was more painful in the late 1970s, when C programming language was on the rise. Software engineers were managing complex projects with lots of different files, and that files may
+require special treatment (e.g.not just compile source code, but fix indentation levels first) it was quite difficult to keep track of the files that need to be recompiled when changes
+occur, and that inspired Stuart Feldman to create [`make`](https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.7058), one of the first build automation systems.
+
+General idea behind `make` was this: gather source code files, together with dependencies and resources, compile them and produce executable file. If some files were changed, `make` will
+recompile only those files and produce new executable.
+
+To tell `make` what to do, special text file is used. It's called `Makefile` and it contains a set of rules on which `make` will treat your software. Makefiles are quite complex, but the
+main thing that you need to know is that you can configure all the build process however you want. Wanna add static analysis before compilation, or need to convert all the images to WebP
+format before producing JAR? It's a bunch of lines of config.
