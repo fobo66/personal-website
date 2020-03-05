@@ -65,3 +65,9 @@ So, the concept of the build automation system can be summarized like this: _per
 ## Why Gradle
 
 `make` may look like it's a perfect fit for the job as the general purpose build system, but why there are the hell lot of other build systems?
+
+Well, the common complaint on `make` was that it has over-complicated `Makefile` format, so project configuration often takes some time, and if you make some mistake in it, it's impossible
+to properly debug it.
+
+Many other build systems were intended to simplify configuration files, make builds reproducible
+and improve performance of the builds.
