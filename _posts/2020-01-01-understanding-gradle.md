@@ -70,4 +70,8 @@ Well, the common complaint on `make` was that it has over-complicated `Makefile`
 to properly debug it.
 
 Many other build systems were intended to simplify configuration files, make builds reproducible
-and improve performance of the builds.
+and improve performance of the builds. Also, different build systems tend to solve different problems faced by their developer.
+
+OK, but still, why Gradle was chosen for building Android apps?
+
+To answer this, let's look at the previous build system that was used for Android before Android Studio and Gradle arrival - Ant.
