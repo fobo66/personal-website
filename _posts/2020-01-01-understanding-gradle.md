@@ -11,6 +11,9 @@ I wanted to share this code in more common way, via plugin, so I decided to crea
 Official docs are not clear enough and spread across different pages, and articles across the internet are often outdated. Getting the knowledge about Gradle helped me
 understand how Android build system works, how can we effectively configure our builds and how to effectively automate some tedious tasks. So, I decided to write this article.
 
+For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU make and Ant.
+So I decided to use similar approach in this article.
+
 First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU make as an example, then I walk you through
 the components of Gradle, and in the end we will fixate our knowledge on the concrete example of the Android Gradle plugin.
 
