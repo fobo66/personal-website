@@ -68,7 +68,8 @@ So, the concept of the build automation system can be summarized like this: _per
 `make` may look like it's a perfect fit for the job as the general purpose build system, but why there are the hell lot of other build systems?
 
 Well, the common complaint on `make` was that it has over-complicated `Makefile` format, so project configuration often takes some time, and if you make some mistake in it, it's quite difficult
-to properly debug it and locate the problem.
+to properly debug it and locate the problem. In addition, `make` doesn't offer
+any solution for managing dependencies: you need to manually maintain them in order somehow, and that often leads to heavily outdated dependencies and inability to update them, unless you will do it constantly.
 
 Many other build systems were intended to simplify configuration files, make builds reproducible
 and improve performance of the builds. Also, different build systems tend to solve different problems faced by their developer.
@@ -77,4 +78,4 @@ OK, but still, why Gradle was chosen for building Android apps?
 
 To answer this, let's look at the previous build system that was used for Android before Android Studio and Gradle arrival - Ant.
 
-Ant was one of the first build systems for Java language, and many open-source Java projects still use it. Ant uses XML config files where you can specify steps to build
+Ant was one of the first build systems for Java language, and many open-source Java projects still use it. Ant uses XML config files where you can specify steps to build your project.
