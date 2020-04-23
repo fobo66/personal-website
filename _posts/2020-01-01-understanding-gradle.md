@@ -74,3 +74,8 @@ to heavily outdated dependencies and inability to update them, unless you will d
 Many other build systems were intended to simplify configuration files, make builds reproducible and improve performance of the builds. Also, different build systems tend to solve different problems faced by their developer.
 Gradle was initially created to make highly portable build environment, so any developer can have the same build output on any hardware used. Plus, Gradle developers strived to make dynamic build scripts, so you can write build
 logic right in your build config, and be sure that it will be executed in any environment.
+
+Huge library of built-in plugins allows you to start building right away, without spending much time on configuring builds.
+
+Important Gradle feature for Android devs is build cache support. It basically means that task won't be executed if its input files were not changed.
+Caching system is robust and you can be sure that it works just fine all the time.
