@@ -9,7 +9,7 @@ Despite it's a simple function, I didn't wanted to write this for each of my pro
 
 I wanted to share this code in more common way, via plugin, so I decided to create my own plugin. After I was done with it, I realized how little I know and understand about Gradle.
 Official docs are not clear enough and spread across different pages, and articles across the internet are often outdated. Getting the knowledge about Gradle helped me
-understand how Android build system works, how can we effectively configure our builds and how to effectively automate some tedious tasks. So, I decided to write this article.
+understand how Android build system works, how can we effectively configure our builds and how to effectively automate some tedious tasks, as well as debunk some myths about it. So, I decided to write this article.
 
 For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU make and Ant.
 So I decided to use similar approach in this article.
@@ -78,4 +78,5 @@ logic right in your build config, and be sure that it will be executed in any en
 Huge library of built-in plugins allows you to start building right away, without spending much time on configuring builds.
 
 Important Gradle feature for Android devs is build cache support. It basically means that task won't be executed if its input files were not changed.
-Caching system is robust and you can be sure that it works just fine all the time.
+Caching system is robust and you can be sure that it works just fine all the time. I've seen some developers don't trust Gradle caches and execute `clean` task on CI every build, increasing build times with no reason.
+For example, if your CI machine performs builds on different branches of you projects that have different version of the same library, builds will be executed correctly. Same goes for different Gradle versions. However, cleaning of caches is necessary to perform once in a while to ensure health of the build system.
