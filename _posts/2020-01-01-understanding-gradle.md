@@ -7,15 +7,18 @@ Hello! For a long time I wanted to migrate my [Bookcrossing Mobile](https://gith
 But I've used remote Groovy function for loading API keys from `.properties` files. Here is a [gist](https://gist.github.com/fobo66/17d5116b5c7bccf5f28036f401f3c09d).
 Despite it's a simple function, I didn't wanted to write this for each of my projects, thus this gist was created.
 
-I wanted to share this code in more common way, via plugin, so I decided to create my own plugin. After I was done with it, I realized how little I know and understand about Gradle.
+I wanted to share this code in more common way, via plugin, so I decided to create my own plugin. After I was done with it, I realized that it never would work in the
+way I wanted it to work because of fundamental Gradle limitations. This situation made me think about how little I know and understand about Gradle. I've asked
+colleagues, and turned out that they prefer not to touch Gradle much and only vaguely understand how it works.
+
 Official docs are not clear enough and spread across different pages, and articles across the internet are often outdated. Getting the knowledge about Gradle helped me
 understand how Android build system works, how can we effectively configure our builds and how to effectively automate some tedious tasks, as well as debunk some myths about it. So, I decided to write this article.
 
-For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU make and Ant.
-So I decided to use similar approach in this article.
+For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with
+studying GNU make and Ant. So I decided to use similar approach in this article.
 
-First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU make as an example, then I walk you through
-the components of Gradle, and in the end we will fixate our knowledge on the concrete example of the Android Gradle plugin.
+First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU `make` as an example, then I walk you through the main features of Gradle, and in the end we will fixate our knowledge on the concrete examples of the Gradle plugins that you can use for Android
+development.
 
 To read this article, you need to know any programming language, but familiarity with Java and Android development will help, since I will use a lot of terms related to it.
 
