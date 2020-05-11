@@ -20,6 +20,9 @@ studying GNU make and Ant. So I decided to use similar approach in this article.
 First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU `make` as an example, then I walk you through the main features of Gradle, and in the end we will fixate our knowledge on the concrete examples of the Gradle plugins that you can use for Android
 development.
 
+This is not a promotional article, neither it's a comprehensive analysis of the Gradle features. I will point out to some things which I find important and underrated,
+and describe them with some pros and contras that I see.
+
 To read this article, you need to know any programming language, but familiarity with Java and Android development will help, since I will use a lot of terms related to it.
 
 ## What is a build system
@@ -74,12 +77,21 @@ Well, the common complaint on `make` was that it has over-complicated `Makefile`
 to properly debug it and locate the problem. In addition, `make` doesn't offer any solution for managing dependencies: you need to manually maintain them in order somehow, and that often leads
 to heavily outdated dependencies and inability to update them, unless you will do it constantly.
 
+### Reproducible builds
+
 Many other build systems were intended to simplify configuration files, make builds reproducible and improve performance of the builds. Also, different build systems tend to solve different problems faced by their developer.
 Gradle was initially created to make highly portable build environment, so any developer can have the same build output on any hardware used. Plus, Gradle developers strived to make dynamic build scripts, so you can write build
 logic right in your build config, and be sure that it will be executed in any environment.
 
 Huge library of built-in plugins allows you to start building right away, without spending much time on configuring builds.
 
+### Caching
+
 Important Gradle feature for Android devs is build cache support. It basically means that task won't be executed if its input files were not changed.
 Caching system is robust and you can be sure that it works just fine all the time. I've seen some developers don't trust Gradle caches and execute `clean` task on CI every build, increasing build times with no reason.
 For example, if your CI machine performs builds on different branches of you projects that have different version of the same library, builds will be executed correctly. Same goes for different Gradle versions. However, cleaning of caches is necessary to perform once in a while to ensure health of the build system.
+
+### Plugins
+
+Gradle Plugin system is great, because it allows you to automate project setup of your app for production, e.g. signing, API keys, localisation and eveything specific to your business.
+However, Gradle provides a lot of different ways to setup these things, thus devs often abuse these features
