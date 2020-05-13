@@ -81,9 +81,7 @@ to heavily outdated dependencies and inability to update them, unless you will d
 
 Many other build systems were intended to simplify configuration files, make builds reproducible and improve performance of the builds. Also, different build systems tend to solve different problems faced by their developer.
 Gradle was initially created to make highly portable build environment, so any developer can have the same build output on any hardware used. Plus, Gradle developers strived to make dynamic build scripts, so you can write build
-logic right in your build config, and be sure that it will be executed in any environment.
-
-Huge library of built-in plugins allows you to start building right away, without spending much time on configuring builds.
+logic right in your build config, and be sure that it will be executed in any environment, no matter what OS you're using.
 
 ### Caching
 
@@ -94,4 +92,23 @@ For example, if your CI machine performs builds on different branches of you pro
 ### Plugins
 
 Gradle Plugin system is great, because it allows you to automate project setup of your app for production, e.g. signing, API keys, localisation and eveything specific to your business.
-However, Gradle provides a lot of different ways to setup these things, thus devs often abuse these features
+However, Gradle provides a lot of different ways to setup these things, thus devs often abuse these features, which leads to tedious scripts that are hard to maintain.
+
+Best way to add some additional steps into your build is using plugins. In Gradle terms, plugun is a collection of tasks. You can define tasks'
+dependencies (e.g. in what order they should run) and tasks themselves via Java, Groovy or Kotlin code. Tasks will be run in the specified order
+when you apply your plugin to the needed module, e.g. `app` in case of Android. As a bonus, you will get syntax highlighting and ability to write
+tests for your build logic.
+
+For example, if you need to decrypt some sensitive info inside your repo before building the app to include it into app resources (e.g. API
+keys), you can use a plugin for that. This plugin may expose one task that will use OpenSSL to decrypt file provided to it as an input,
+and plugin will specify that this task will run before anything else.
+
+Another benefit of using plugins is the possibility to extract their source code from the main project. It's especially important when project is big. For this you have two options:
+
+* Use `buildSrc` plugin folder.
+* Publish plugin to Gradle Plugin repo or your own private Maven repo.
+
+`buildSrc` folder is a special beast. This is a default module to define any logic that you need for other modules to build. It can contain
+some code that will be compiled before any other module and will be available in the build scripts for modules. You can also define plugins and
+tasks in `buildSrc`'s build script. For Android, people often use `buildSrc` to store dependencies' versions and package IDs
+to use in app's `build.gradle` in the nice way. However, you can do more advanced things with `buildSrc`
