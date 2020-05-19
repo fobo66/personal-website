@@ -111,4 +111,5 @@ Another benefit of using plugins is the possibility to extract their source code
 `buildSrc` folder is a special beast. This is a default module to define any logic that you need for other modules to build. It can contain
 some code that will be compiled before any other module and will be available in the build scripts for modules. You can also define plugins and
 tasks in `buildSrc`'s build script. For Android, people often use `buildSrc` to store dependencies' versions and package IDs
-to use in app's `build.gradle` in the nice way. However, you can do more advanced things with `buildSrc`
+to use in app's `build.gradle` in the nice way. One of the possible way to do this is described here.
+However, you can do more advanced things with `buildSrc`. As an example, you can setup API key loading from trusted source via `buildSrc` plugin and a bunch of tasks, so your keys won't leak into git history and will be loaded automatically, without manual setup, which is paticularly useful on CI.
