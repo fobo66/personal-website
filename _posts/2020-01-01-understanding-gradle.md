@@ -41,7 +41,7 @@ So, the concept of the build automation system can be summarized like this: _per
 
 Well, the common complaint on `make` was that it has over-complicated `Makefile` format, so project configuration often takes some time, and if you make some mistake in it, it's quite difficult to properly debug it and locate the problem. In addition, `make` doesn't offer any solution for managing dependencies: you need to manually maintain them in order somehow, and that often leads to heavily outdated dependencies and inability to update them, unless you keep an eye on them constantly. Gradle addresses these issues in its own fashion, and allows you to fully control your build process.
 
-But with this power goes along a great amount of opaque stuff that you end up using like a black magic, without truly understanding why and thus limiting control and unnecesarily increasing complexity. I will uncover some of the concepts that I've misunderstood, but keep in mind that there is much more about the Gradle that I cover in this article.
+But with this power goes along a great amount of opaque stuff that you end up using like a black magic, without truly understanding why and thus limiting control and unnecessarily increasing complexity. I will uncover some of the concepts that I've misunderstood, but keep in mind that there is much more about the Gradle that I cover in this article.
 
 ### Caching
 
@@ -49,7 +49,7 @@ Important Gradle feature for Android devs is build cache support. It basically m
 
 ### Plugins
 
-Gradle Plugin system is great, because it allows you to automate project setup of your app for production, e.g. signing, API keys, localisation and everything specific to your business. However, Gradle provides a lot of different ways to setup these things, thus devs often abuse these features, which leads to tedious scripts that are hard to maintain.
+Gradle Plugin system is great, because it allows you to automate project setup of your app for production, e.g. signing, API keys, localization and everything specific to your business. However, Gradle provides a lot of different ways to setup these things, thus devs often abuse these features, which leads to tedious scripts that are hard to maintain.
 
 Best way to add some additional steps into your build is using plugins. In Gradle terms, plugin is a collection of tasks. You can define tasks' dependencies (e.g. in what order they should run) and tasks themselves via Java, Groovy or Kotlin code. Tasks will be run in the specified order when you apply your plugin to the needed module, e.g. `app` in case of Android. As a bonus, you will get syntax highlighting and ability to write tests for your build logic.
 
@@ -62,4 +62,4 @@ Another benefit of using plugins is the possibility to extract their source code
 
 `buildSrc` folder is a special beast. This is a default module to define any logic that you need for other modules to build. It can contain some code that will be compiled before any other module and will be available in the build scripts for modules. You can also define plugins and tasks in `buildSrc`'s build script. For Android, people often use `buildSrc` to store dependencies' versions and package IDs to use in app's `build.gradle` in the nice way. One of the possible way to do this is described [here](https://proandroiddev.com/gradle-dependency-management-with-kotlin-94eed4df9a28). However, you can do more advanced things with `buildSrc`. As an example, you can setup API key loading from trusted source via `buildSrc` plugin and a bunch of tasks, so your keys won't leak into git history and will be loaded automatically, without manual setup, which is particularly useful on CI.
 
-However, changes in `buildSrc` cause cache invalidation for any other module, so it may not be particularly suitable for build logic that change frequently or for huge multi-module projects. Also, Project Structure tool in Android Studio, as well as Dependabot, don't recognise dependencies declared in `buildSrc` module, so you would need to keep an eye on the versions manually, and prepare for increased build times for your modules when you decide to update even one dependency version.
+However, changes in `buildSrc` cause cache invalidation for any other module, so it may not be particularly suitable for build logic that change frequently or for huge multi-module projects. Also, Project Structure tool in Android Studio, as well as Dependabot, don't recognize dependencies declared in `buildSrc` module, so you would need to keep an eye on the versions manually, and prepare for increased build times for your modules when you decide to update even one dependency version.
