@@ -5,11 +5,11 @@ published: false
 
 Hello! For a long time I wanted to migrate my [Bookcrossing Mobile](https://github.com/fobo66/BookcrossingMobile) app to Gradle Kotlin DSL. But I've used remote Groovy function for loading API keys from `.properties` files. Here is a [gist](https://gist.github.com/fobo66/17d5116b5c7bccf5f28036f401f3c09d). Despite it's a simple function, I didn't wanted to write this for each of my projects, thus this gist was created.
 
-I wanted to share this code in more common way, via plugin, so I decided to create my own [plugin](https://github.com/fobo66/propertiesLoader). After I was done with it, I realized that it never would work in the way I wanted it to work because of fundamental Gradle limitations. This situation made me think about how little I know and understand about Gradle. I've asked colleagues, and turned out that they prefer not to touch Gradle much and only vaguely understand how it works.
+I wanted to share this code in more common way, via plugin, so I decided to create my own [plugin](https://github.com/fobo66/propertiesLoader). After I was done with it, I realized that it never would work in the way I wanted it to work because of how Gradle works. This situation made me think about how little I know and understand about Gradle. I've asked colleagues, and turned out that they prefer not to touch Gradle scripts much and only vaguely understand how it works.
 
 Official docs are not clear enough and spread across different pages, and articles across the internet are often outdated. Getting the knowledge about Gradle helped me understand how Android build system works, how can we effectively configure our builds and how to effectively automate some tedious tasks, as well as debunk some myths about it. So, I decided to write this article.
 
-For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU `make` and Ant. So I decided to use similar approach in this article.
+For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU `make` and Gradle sources. So I decided to use similar approach in this article, though I don't recommend to dive into the source code.
 
 First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU `make` as an example, then I walk you through the main features of Gradle, and in the end we will fixate our knowledge on the concrete examples of the Gradle plugins that you can use for Android development.
 
@@ -27,7 +27,7 @@ This was even more painful in the late 1970s, when C programming language was on
 
 General idea behind `make` was this: gather source code files, together with dependencies and resources, compile them and produce executable file. If some files were changed, `make` will recompile only those files and produce new executable. These steps can be easily applied not only to the software projects, but for anything that involves files.
 
-To tell `make` what to do, special text file is used. It's called `Makefile` and it contains a set of rules on which `make` will treat your software. With `Makefile` you can configure all the build process however you want. Wanna add static analysis before compilation, or need to convert all the images to WebP format before producing JAR? It's a bunch of lines of config.
+To tell `make` what to do, special text file is used. It's called `Makefile` and it contains a set of rules on which `make` will treat your software. With `Makefile` you can configure all the build process however you want. Wanna add static analysis before compilation, or need to convert all the images to WebP format before producing final executable file? It's a bunch of lines of config.
 
 `make` helps to deal with a lot of source code files in a systematic way, and you can be sure that your software will be build on different machine exactly as it's built on yours, regardless where you put folder with your project on disk.
 
@@ -47,7 +47,7 @@ First of all, Gradle uses a bunch of terms specific to it do define its core com
 
 ### Caching
 
-Important Gradle feature for Android devs is build cache support. It basically means that task won't be executed if its input files were not changed. Caching system is robust and you can be sure that it works just fine all the time. I've seen some developers don't trust Gradle caches and execute `clean` task on CI every build, increasing build times with no reason. For example, if your CI machine performs builds on different branches of you projects that have different version of the same library, builds will be executed correctly. Same goes for different Gradle versions. However, cleaning of caches is useful to perform once in a while to ensure health of the CI machine, so it won't run out of disc space. For example, Gitlab has [support for cleaning up caches of its Docker executor](https://docs.gitlab.com/runner/executors/docker.html#clearing-docker-cache) and recommends to do it once per week.
+Important Gradle feature for Android developers is build cache support. It basically means that task won't be executed if its input files were not changed. Caching system is robust and you can be sure that it works just fine all the time. I've seen some developers don't trust Gradle caches and execute `clean` task on CI every build, increasing build times with no reason. For example, if your CI machine performs in parallel builds on different branches of your projects that have different version of the same library, builds will be executed correctly. Same goes for different Gradle versions. However, cleaning of caches is useful to perform once in a while to ensure health of the CI machine, so it won't run out of disc space when you don't expect it. For example, Gitlab has [support for cleaning up caches of its Docker executor](https://docs.gitlab.com/runner/executors/docker.html#clearing-docker-cache) and recommends to do it once per week.
 
 ### Plugins
 
