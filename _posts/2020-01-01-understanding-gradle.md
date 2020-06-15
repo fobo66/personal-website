@@ -47,7 +47,7 @@ First of all, Gradle uses a bunch of terms specific to it do define its core com
 
 ### Caching
 
-Important Gradle feature for Android devs is build cache support. It basically means that task won't be executed if its input files were not changed. Caching system is robust and you can be sure that it works just fine all the time. I've seen some developers don't trust Gradle caches and execute `clean` task on CI every build, increasing build times with no reason. For example, if your CI machine performs builds on different branches of you projects that have different version of the same library, builds will be executed correctly. Same goes for different Gradle versions. However, cleaning of caches is useful to perform once in a while to ensure health of the CI machine, so it won't run out of disc space.
+Important Gradle feature for Android devs is build cache support. It basically means that task won't be executed if its input files were not changed. Caching system is robust and you can be sure that it works just fine all the time. I've seen some developers don't trust Gradle caches and execute `clean` task on CI every build, increasing build times with no reason. For example, if your CI machine performs builds on different branches of you projects that have different version of the same library, builds will be executed correctly. Same goes for different Gradle versions. However, cleaning of caches is useful to perform once in a while to ensure health of the CI machine, so it won't run out of disc space. For example, Gitlab has [support for cleaning up caches of its Docker executor](https://docs.gitlab.com/runner/executors/docker.html#clearing-docker-cache) and recommends to do it once per week.
 
 ### Plugins
 
