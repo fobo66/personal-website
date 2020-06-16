@@ -11,7 +11,7 @@ Official docs are not clear enough and spread across different pages, and articl
 
 For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU `make` and Gradle sources. So I decided to use similar approach in this article, though I don't recommend to dive into the source code.
 
-First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU `make` as an example, then I walk you through the main features of Gradle, and in the end we will fixate our knowledge on the concrete examples of the Gradle plugins that you can use for Android development.
+First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU `make` as an example, then I walk you through the main features of Gradle that I found useful but unclear, providing some real-life examples.
 
 This is not a promotional article, neither it's a comprehensive analysis of the Gradle features. I will point out to some things which I find important and underrated, and describe them with some pros and contras that I see.
 
