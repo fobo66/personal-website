@@ -1,6 +1,6 @@
 ---
 title: "Understanding Gradle for Android developers"
-published: false
+published: true
 ---
 
 Hello! For a long time I wanted to migrate my [Bookcrossing Mobile](https://github.com/fobo66/BookcrossingMobile) app to Gradle Kotlin DSL. But I've used remote Groovy function for loading API keys from `.properties` files. Here is a [gist](https://gist.github.com/fobo66/17d5116b5c7bccf5f28036f401f3c09d). Despite it's a simple function, I didn't wanted to write this for each of my projects, thus this gist was created.
@@ -23,7 +23,7 @@ According to [wiki](https://en.wikipedia.org/wiki/Build_automation), build autom
 
 Imagine your first Hello World application, when you just started to learn your programming language. It probably was deadly simple, written in one file and run from the command line. However, when complexity of the problem you solve grows, one file is often not enough. You may end up using multiple files, stored chaotically across the folder with your project. And when you need to use some third-party dependencies, command for compiling stuff will grow significantly, allowing pesky mistakes spill into it when someone will try to compile your project on different machine. You may end up with some `.sh` or `.cmd` files that will contain command that is required to build your project, but these scripts are not guaranteed to work on other OS or even in other folder, and you may end up spending more time fixing shell script for build than writing code.
 
-This was even more painful in the late 1970s, when C programming language was on the rise. Software engineers were managing complex projects with lots of different files, and that files may require special treatment, e.g.generating some code before compilation. It was quite difficult to keep track of the files that need to be recompiled when changes occur, and  no one wanted to fully recompile whole project when only one file was changed, because it can take ages. That inspired Stuart Feldman to create [`make`](https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.7058), one of the first build automation systems.
+This was even more painful in the late 1970s, when C programming language was on the rise. Software engineers were managing complex projects with lots of different files, and that files may require special treatment, e.g. generating some code before compilation. It was quite difficult to keep track of the files that need to be recompiled when changes occur, and  no one wanted to fully recompile whole project when only one file was changed, because it can take ages. That inspired Stuart Feldman to create [`make`](https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.39.7058), one of the first build automation systems.
 
 General idea behind `make` was this: gather source code files, together with dependencies and resources, compile them and produce executable file. If some files were changed, `make` will recompile only those files and produce new executable. These steps can be easily applied not only to the software projects, but for anything that involves files.
 
@@ -53,6 +53,8 @@ Important Gradle feature for Android developers is build cache support. It basic
 
 Gradle Plugin system is great, because it allows you to automate project setup of your app for production, e.g. signing, API keys, localization and everything specific to your business. However, Gradle provides a lot of different ways to setup these things, thus devs often abuse these features, which leads to tedious scripts that are hard to maintain.
 
+Basically, clean folder with Gradle project will contain almost no tasks, because there is no plugins applied in build.gradle file. If you want to have Java project build by Gradle, you need to apply `java` plugin first. However, if you start project from Intellij IDEA, you will get initial Gradle setup just after creating project and you will most likely have basic plugins for your language applied already. But default plugins are not always enough, and you may need to extend your project with extras that will suit your needs.
+
 Best way to add some additional steps into your build is using plugins. In Gradle terms, plugin is a collection of tasks. You can define tasks' dependencies (e.g. in what order they should run) and tasks themselves via Java, Groovy or Kotlin code. Tasks will be run in the specified order when you apply your plugin to the needed module, e.g. `app` in case of Android. As a bonus, you will get syntax highlighting and ability to write tests for your build logic.
 
 For example, if you need to decrypt some sensitive info inside your repo before building the app to include it into app resources (e.g. API keys), you can use a plugin for that. This plugin may expose one task that will use OpenSSL to decrypt file provided to it as an input, and plugin will specify that this task will run before anything else.
@@ -70,4 +72,6 @@ However, changes in `buildSrc` cause cache invalidation for any other module, so
 
 ## Conclusion
 
-We looked into some features of Gradle build system.
+We tried to understand build system in general and Gradle in particular, and looked into features of Gradle build system that are often confusing - cache and plugins system.
+
+Hope you found this article useful. If you have anything to add or want to discuss some point regarding this article, feel free to open an issue on Github or reach me out in Twitter. Cheers!
