@@ -4,7 +4,7 @@ published: true
 ---
 
 ![Gradle Build Tool](https://gradle.org/images/homepage/gradle-org-hero.png)
-[Source](https://gradle.org)
+*[Source](https://gradle.org)*
 
 Hello! For a long time I wanted to migrate my [Bookcrossing Mobile](https://github.com/fobo66/BookcrossingMobile) app to Gradle Kotlin DSL. But I've used remote Groovy function for loading API keys from `.properties` files. Here is a [gist](https://gist.github.com/fobo66/17d5116b5c7bccf5f28036f401f3c09d). Despite it's a simple function, I didn't wanted to write this for each of my projects, thus this gist was created.
 
@@ -12,7 +12,7 @@ I wanted to share this code in more common way, via plugin, so I decided to crea
 
 Official docs are not clear enough and spread across different pages, and articles across the internet are often outdated. Getting the knowledge about Gradle helped me understand how Android build system works, how can we effectively configure our builds and how to effectively automate some tedious tasks, as well as debunk some myths about it. So, I decided to write this article.
 
-For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU `make` and Gradle sources. So I decided to use similar approach in this article, though I don't recommend to dive into the source code.
+For me to properly understand Gradle, it was helpful to really understand the concept of the build system. Historical references helped me much here, along with studying GNU `make` and Gradle sources. So I decided to use similar approach in this article, though I don't recommend you to dive into the source code.
 
 First of all, I'll explain a little bit about what are build systems and what are they useful for, with small historical reference to GNU `make` as an example, then I walk you through the main features of Gradle that I found useful but unclear, providing some real-life examples.
 
