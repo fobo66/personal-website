@@ -3,6 +3,9 @@ title: "Understanding Gradle for Android developers"
 published: true
 ---
 
+![Gradle Build Tool](https://gradle.org/images/homepage/gradle-org-hero.png)
+[Source](https://gradle.org)
+
 Hello! For a long time I wanted to migrate my [Bookcrossing Mobile](https://github.com/fobo66/BookcrossingMobile) app to Gradle Kotlin DSL. But I've used remote Groovy function for loading API keys from `.properties` files. Here is a [gist](https://gist.github.com/fobo66/17d5116b5c7bccf5f28036f401f3c09d). Despite it's a simple function, I didn't wanted to write this for each of my projects, thus this gist was created.
 
 I wanted to share this code in more common way, via plugin, so I decided to create my own [plugin](https://github.com/fobo66/propertiesLoader). After I was done with it, I realized that it never would work in the way I wanted it to work because of how Gradle works. This situation made me think about how little I know and understand about Gradle. I've asked colleagues, and turned out that they prefer not to touch Gradle scripts much and only vaguely understand how it works.
@@ -27,7 +30,7 @@ This was even more painful in the late 1970s, when C programming language was on
 
 General idea behind `make` was this: gather source code files, together with dependencies and resources, compile them and produce executable file. If some files were changed, `make` will recompile only those files and produce new executable. These steps can be easily applied not only to the software projects, but for anything that involves files.
 
-To tell `make` what to do, special text file is used. It's called `Makefile` and it contains a set of rules on which `make` will treat your software. With `Makefile` you can configure all the build process however you want. Wanna add static analysis before compilation, or need to convert all the images to WebP format before producing final executable file? It's a bunch of lines of config.
+To tell `make` what to do, special text file is used. It's called `Makefile` and it contains a set of rules on which `make` will treat your software. With `Makefile` you can configure all the build process however you want. Wanna add static analysis before compilation, or need to convert all the images to WebP format before producing final executable file? It's a bunch of lines of shell commands in `Makefile`.
 
 `make` helps to deal with a lot of source code files in a systematic way, and you can be sure that your software will be build on different machine exactly as it's built on yours, regardless where you put folder with your project on disk.
 
@@ -73,5 +76,7 @@ However, changes in `buildSrc` cause cache invalidation for any other module, so
 ## Conclusion
 
 We tried to understand build system in general and Gradle in particular, and looked into features of Gradle build system that are often confusing - cache and plugins system.
+
+For further reading, you can check [this repo](https://github.com/android/gradle-recipes/) with a lot of examples of Gradle tasks and plugins for Android development.
 
 Hope you found this article useful. If you have anything to add or want to discuss some point regarding this article, feel free to open an issue on Github or reach me out in Twitter. Cheers!
