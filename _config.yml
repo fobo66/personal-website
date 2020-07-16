@@ -1,7 +1,7 @@
 layout: sidebar
 style: dark 
 
-plugins:
+gems:
   - jekyll-octicons
   - jekyll-github-metadata
   - jemoji
@@ -25,7 +25,7 @@ projects:
   #   - stars
   limit: 9
   exclude:
-    archived: false
+    archived: true
     forks: true
     projects:
     # - repo-name
