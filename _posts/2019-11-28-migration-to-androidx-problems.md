@@ -1,6 +1,6 @@
 ---
 title: "Musings about quality: what I've learned after migrating my projects to AndroidX"
-published: false
+published: true
 ---
 
 Hello! Recently I decided to get back to my old project, [Bookcrossing Mobile](https://github.com/fobo66/BookcrossingMobile) app, to update it to the recent SDK versions and try out new things and approaches in Android development. Luckily, it was fine now, migration went smoothly, much better than at first attempt year ago.
