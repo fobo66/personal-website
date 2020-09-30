@@ -13,6 +13,8 @@ I've created a list of desired features, but there was almost immediately appear
 
 I've tried to go with Google services, and started researching Google Cloud Platform stuff for backend. GCP is cool, and it offers a lot of really good services, but it all required a lot of effort to invest, and that wasn't what I wanted. Ideally, I would have preferred to spend as little time on backend development as possible, so I can focus mostly on app side.
 
+Thus, I turned my look to Firebase. It was at that time recently acquired by Google, and there was not so much services they offered. But it was quite enough for my needs: Realtime Database was quite enough to store basic data that I had, Cloud Storage fitted perfectly for storing cover images, and Authentication for handling users. Plus later I've added Ads and Analytics as a side effect.
+
 ## Initial development
 
 ## Release
