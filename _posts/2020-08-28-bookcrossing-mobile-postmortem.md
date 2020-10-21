@@ -15,6 +15,10 @@ I've tried to go with Google services, and started researching Google Cloud Plat
 
 Thus, I turned my look to Firebase. It was at that time recently acquired by Google, and there was not so much services they offered. But it was quite enough for my needs: Realtime Database was quite enough to store basic data that I had, Cloud Storage fitted perfectly for storing cover images, and Authentication worked just fine for handling users. Plus later I've added Ads and Analytics as a side effect. There was even convenient FirebaseUI wrapper that helped with binding Firebase services with UI.
 
+I had an eye on RxJava for a long time, it seemed for me the good choice for the most Android apps due to its good threading abstractions, concise API and functional programming fleur. Reactive programming didn't seemed too complex for this project for me, and I wanted to improve my knowledge of Rx, so I decided to build my app in Rx-way.
+
+These factors shaped the initial architecture of the app and helped decide how it will look like.
+
 ## Initial development
 
 ## Release
