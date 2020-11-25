@@ -21,6 +21,8 @@ These factors shaped the initial architecture of the app and helped decide how i
 
 ## Initial development
 
+Once I figured out what to do, I chose then-popular MVP architectural pattern for my new app that was implemented with help of Moxy library.
+
 ## Release
 
 ## Big refactoring
