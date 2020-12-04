@@ -21,7 +21,7 @@ These factors shaped the initial architecture of the app and helped decide how i
 
 ## Initial development
 
-Once I figured out what to do, I chose then-popular MVP architectural pattern for my new app that was implemented with help of Moxy library.
+Once I figured out what to do, I chose then-popular MVP architectural pattern for my new app that was implemented with help of Moxy library. It was quite straightforward, given the amount of code on Stackoverflow ready for copying and pasting right into the project. For non-trivial issues I've picked some libraries from Github with decent amount of stars.
 
 ## Release
 
