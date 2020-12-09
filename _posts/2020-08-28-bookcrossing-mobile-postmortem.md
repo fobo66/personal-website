@@ -21,7 +21,7 @@ These factors shaped the initial architecture of the app and helped decide how i
 
 ## Initial development
 
-Once I figured out what to do, I chose then-popular MVP architectural pattern for my new app that was implemented with help of Moxy library. It was quite straightforward, given the amount of code on Stackoverflow ready for copying and pasting right into the project. For non-trivial issues I've picked some libraries from Github with decent amount of stars.
+Once I figured out what to do, I chose then-popular MVP architectural pattern for my new app that was implemented with help of Moxy library. It was quite straightforward, given the amount of code on Stackoverflow ready for copying and pasting right into the project. For non-trivial issues I've picked some libraries from Github with decent amount of stars. I followed examples for Firebase setup and for Moxy, without quite thinking about fitting it into the MVP pattern, so I ended up with a lot of Firebase-related code in views and a lot of business logic in presenters, all mixed up. I even tried to write some tests, but it looked for me like there was not so much to test in terms of business logic, so I haven't added any tests. To be frank, it wasn't quite possible to add tests in that situation, because of a coupling business logic with UI, as well as lack of support for tests on Firebase side.
 
 ## Release
 
