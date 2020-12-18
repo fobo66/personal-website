@@ -25,6 +25,8 @@ Once I figured out what to do, I chose then-popular MVP architectural pattern fo
 
 ## Release
 
+After I've implemented most of my ideas, I decided to prepare the app for release, but perform some manual testing of the whole app beforehand. I did test each feature in isolation while developing, but now I was checking everything in combination, each user flow I can come up with. There were some annoying issues with styles for toolbar, but nothing critical. I've spent quite a lot of time (couple of days, actually) trying to fix toolbar appearance, but nothing worked. So, out of frusration and poor health I've postponed release for later. After few months I got back to releasing process and decided to let that pesky toolbar bug into this release. Spoiler: I've fixed it only three years later with help of Insets.
+
 ## Big refactoring
 
 ## State after refactoring
