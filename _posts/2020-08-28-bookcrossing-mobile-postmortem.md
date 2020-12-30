@@ -31,6 +31,8 @@ After few months I got back to releasing process and decided to let that pesky t
 
 App went live on beta track at some date, and after that I've noticed quite a few crash reports in Crashlytics. I've fixed them immediately.
 
+I haven't promoted the app anywhere and I haven't bought installs. Not because I'm against it, just didn't wanted to bother with marketing stuff and pay for advertisements, more wanted to focus on improving quality.
+
 ## Big refactoring
 
 ## State after refactoring
