@@ -25,11 +25,15 @@ Once I figured out what to do, I chose then-popular MVP architectural pattern fo
 
 ## Release
 
-After I've implemented most of my ideas, I decided to prepare the app for release, but perform some manual testing of the whole app beforehand. I did test each feature in isolation while developing, but now I was checking everything in combination, each user flow I can come up with. There were some annoying issues with styles for toolbar, but nothing critical. I've spent quite a lot of time (couple of days, actually) trying to fix toolbar appearance, but nothing worked. So, out of frusration and poor health I've postponed release for later.
+After I've implemented most of my ideas, I decided to prepare the app for release, but perform some manual testing of the whole app beforehand. I did test each feature in isolation while developing, but now I was checking everything in combination, each user flow I can come up with. There were some annoying issues with styles for toolbar, but nothing critical. I've spent quite a lot of time (couple of days, actually) trying to fix toolbar appearance, but nothing worked. So, out of frustration and poor health I've postponed release for later.
 
 After few months I got back to releasing process and decided to let that pesky toolbar bug into this release. _Spoiler: I've fixed it only three years later with help of Insets._ Also, the other bugs that were here I decided to fix after release, since I considered them minor.
 
 App went live on beta track at some date, and after that I've noticed quite a few crash reports in Crashlytics. I've fixed them immediately.
+
+Mostly app was functional, but first users have uncovered scenarios I wasn't prepared for. For example, some unusual user navigation flows were leading to crash because of uninitialized variable. It took me the whole day to fix.
+
+Another interesting issue was with ads config. I've sourced Firebase Ads integration code from multiple places, and it was complete mess, TBH. Even more, it didn't work on release build because of misconfiguration. It took me 2 days to figure out what was wrong and configure it properly.
 
 I haven't promoted the app anywhere and I haven't bought installs. Not because I'm against it, just didn't wanted to bother with marketing stuff and pay for advertisements, more wanted to focus on improving quality.
 
