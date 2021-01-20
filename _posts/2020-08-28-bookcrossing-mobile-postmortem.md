@@ -39,6 +39,8 @@ I haven't promoted the app anywhere and I haven't bought installs. Not because I
 
 ## Big refactoring
 
+Time passed, I was slowly improving some features and fixing bugs so I would be able to release to the main track, not beta. And then suddenly Google announced their Jetpack project with migration to AndroidX libraries and many more.
+
 ## State after refactoring
 
 ## Buried plans
