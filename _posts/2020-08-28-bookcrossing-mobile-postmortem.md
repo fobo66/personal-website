@@ -39,8 +39,8 @@ I haven't promoted the app anywhere and I haven't bought installs. Not because I
 
 ## Big refactoring
 
-Time passed, I was slowly improving some features and fixing bugs so I would be able to release to the main track, not beta. And then suddenly Google announced their Jetpack project with migration to AndroidX libraries and many more.
-
+Time passed, I was slowly improving some features and fixing bugs so I would be able to release to the main track, not beta. And then suddenly Google announced their Jetpack project with migration to AndroidX libraries and many more. I was excited by the new approach Google has taken and wanted to integrate it as soon as possible. But there was a catch: when I started to migrate
+app to AndroidX, I've noticed that some libraries I've used started breaking the build with AndroidX, even with Jetifier enabled. After digging into the sourcee code I've found that these libraries were using some components of old support librares that were not migrated to the AndroidX or were removed or renamed. I've also noticed that some important libraries were abandoned by their maintainers.
 ## State after refactoring
 
 ## Buried plans
