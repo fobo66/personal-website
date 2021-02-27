@@ -1,14 +1,12 @@
 layout: sidebar
 style: dark 
 
-gems:
+plugins:
   - jekyll-octicons
   - jekyll-github-metadata
   - jemoji
 
 permalink: /:year/:month/:day/:title/
-
-google_analytics: UA-58749162-2
 
 defaults:
   -
