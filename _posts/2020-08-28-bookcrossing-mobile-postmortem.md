@@ -57,9 +57,11 @@ As the next step, I decided to reimplement book position selection. Initially, I
 
 Well, to pick location on the map, first of all you need a map. As a map provider, I chose Mapbox: it seemed to be great alternative to the Google Maps that is more detailed and is convenient to use. I even planned to use it across the whole app, e.g. to show books on the map and show location of the particular book inside some small static map in book screen. Unfortunately, it didn't happen, and the whole Mapbox integration lead to a lot of frustration.
 
-I've added Mapbox quickly, since its API was quite similar to Google Maps. In basic shape it worked fine, but issues started to arise when I started to add logic for the main feature – selecting position. Various random bugs started to appear on the map that eventually turned to crashes in native code. There was an ope issue on Github for that, but it was quickly closed with a recommendation to use newer version. Unfortunately, newer version contained the same bug.
+I've added Mapbox quickly, since its API was quite similar to Google Maps. In basic shape it worked fine, but issues started to arise when I started to add logic for the main feature – selecting position. Various random bugs started to appear on the map that eventually turned to crashes in native code. There was an open issue on Github for that, but it was quickly closed with a recommendation to use newer version. Unfortunately, newer version contained the same bug.
 
-Another frustrating issue was in doc for Mapbox. They appeared to be scattered across different pages, and it took me quite a lot of time to gather all the pieces together to understand what's going on here at all.
+Another frustrating issue was in doc for Mapbox. They appeared to be scattered across different pages, and it took me quite a lot of time to gather all the pieces together to understand what's going on here at all. For example, it was quite challenging to find the description of the GeoJSON format they're using. For some reason, it didn't googled well, and there was little mention of it in docs. As far as I understood, they've used a lot of terminology from GeoJSON standard, without quite referencing definition of this terminology back to teh standard in their docs. Plus, SDK was not quite covered with javadoc.
+
+I've spent week or two trying to solve it until "Screw it!" moment. I decided not to bother with MApbox any longer and rewrote all the code to Google Maps in a couple of hours. It even fit more nicely with Rx, though it's up to discussion.
 
 ## Buried plans
 
