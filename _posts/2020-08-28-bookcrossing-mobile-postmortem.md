@@ -61,7 +61,7 @@ I've added Mapbox quickly, since its API was quite similar to Google Maps. In ba
 
 Another frustrating issue was in doc for Mapbox. They appeared to be scattered across different pages, and it took me quite a lot of time to gather all the pieces together to understand what's going on here at all. For example, it was quite challenging to find the description of the GeoJSON format they're using. For some reason, it didn't googled well, and there was little mention of it in docs. As far as I understood, they've used a lot of terminology from GeoJSON standard, without quite referencing definition of this terminology back to teh standard in their docs. Plus, SDK was not quite covered with javadoc.
 
-I've spent week or two trying to solve it until "Screw it!" moment. I decided not to bother with MApbox any longer and rewrote all the code to Google Maps in a couple of hours. It even fit more nicely with Rx, though it's up to discussion.
+I've spent week or two trying to solve it until "Screw it!" moment. I decided not to bother with Mapbox any longer and rewrote all the code to Google Maps in a couple of hours. It even fit more nicely with Rx due to slightly more open interface, although it's IMHO.
 
 ## Buried plans
 
