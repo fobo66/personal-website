@@ -61,8 +61,12 @@ I've added Mapbox quickly, since its API was quite similar to Google Maps. In ba
 
 Another frustrating issue was in doc for Mapbox. They appeared to be scattered across different pages, and it took me quite a lot of time to gather all the pieces together to understand what's going on here at all. For example, it was quite challenging to find the description of the GeoJSON format they're using. For some reason, it didn't googled well, and there was little mention of it in docs. As far as I understood, they've used a lot of terminology from GeoJSON standard, without quite referencing definition of this terminology back to teh standard in their docs. Plus, SDK was not quite covered with javadoc.
 
-I've spent week or two trying to solve it until "Screw it!" moment. I decided not to bother with Mapbox any longer and rewrote all the code to Google Maps in a couple of hours. It even fit more nicely with Rx due to slightly more open interface, although it's IMHO.
+I've spent week or two trying to solve it until "Screw it!" moment. I decided not to bother with Mapbox any longer and rewrote all the code to Google Maps in a couple of hours. It even fit more nicely with Rx due to slightly more open interface, although it's only my humble opinion. Since Maps SDK was not quite designed with regard to Rx, it required me to use regular hack with `PublishSubject` to get it working, and Google Maps SDK had all the necessary callbacks I needed for my business logic. Mapbox SDK required some data processing and was less asyncronous in this case. <!-- Need to actually fact-check this statement, since I don't quite remember after all this time -->
 
 ## Buried plans
+
+Before I received DMCA takedown request, I was working on integrating analytics. At work, we use analytics extensively for each app feature, and it really helps to see which part is actually useful for our customers. It inspired me to integrate analytics further. I wasn't aware about the privacy downsides of Google Analytics back then, so I decided to use it first, keeping space for other analytics providers just for the sake of doing it. I wanted to have analytics layer decoupled from the particular analytics provider, so I was planning to have core analytics module with interfaces, and module for each provider, and register provider inside app's Dagger module.
+
+While I was studying different analytics providers, I found out that they all have different features and different API that were not quite compatible. It was hard to find good interface for major analytics providers, and most importantly, they often required Context or Activity instance to be around, which wasn't fitting to my app's architecture and desired structure of the analytics module.
 
 ## Conclusion
